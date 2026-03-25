@@ -32,7 +32,7 @@ decode:
   parallelism:
     tensor: 8
   create: true
-  replicas: 1
+  replicas: 2
   labels:
     llm-d.ai/model: "minimax-m2.5"
     llm-d.ai/workload: "decode"
@@ -64,7 +64,7 @@ decode:
         - "--max-model-len"
         - "auto"
         - "--kv-cache-dtype fp8"
-        - "--gpu-memory-utilization 0.9"
+        - "--gpu-memory-utilization 0.86"
       env:
 
         - name: TRITON_LIBCUDA_PATH
@@ -193,7 +193,7 @@ prefill:
         - "--max-model-len"
         - "auto"
         - "--kv-cache-dtype fp8"
-        - "--gpu-memory-utilization 0.8"
+        - "--gpu-memory-utilization 0.86"
       env:
         - name: TRITON_LIBCUDA_PATH
           value: /usr/lib64
